@@ -77,3 +77,4 @@ group :production do
   gem 'pg'
   
 end 
+gem "byebug", "~> 11.1"
