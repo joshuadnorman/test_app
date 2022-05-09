@@ -6,4 +6,8 @@
 <p>
     <strong>Description : </strong> <%= @article.description %>
 </p>
-    
+</br>
+
+<%= link_to 'Edit',edit_article_path(@article), data: { "turbo-method": :get } %>
+<%= link_to 'Delete',article_path(@article), data: { "turbo-method": :delete,"turbo_confirm": "Are you sure" } %>
+<%= link_to 'Return to articles index',articles_path(), data: { "turbo-method": :get } %>
