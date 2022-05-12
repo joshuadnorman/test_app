@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-custom navbar-mainbg">
+	<%= link_to 'ALPHA BLOG',root_path(),class: "navbar-brand navbar-logo",id:"logo", data: { "turbo-method": :get } %>
+	<button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<i class="fas fa-bars text-white"></i>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav ml-auto">
+			<div class="hori-selector">
+				<div class="left"></div>
+				<div class="right"></div>
+			</div>
+			<li class="nav-item active">
+				<%= link_to root_path,class: "nav-link" do %>
+  					<i class="fas fa-house-user"></i>Home
+				<% end %>
+			</li>
+			<li class="nav-item">
+				<%= link_to about_path,class: "nav-link" do %>
+  					<i class="fa-solid fa-circle-info"></i>About
+				<% end %>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="javascript:void(0);"><i class="fa-solid fa-newspaper"></i>Articles</a>
+			</li>
+		</ul>
+	</div>
+</nav>
