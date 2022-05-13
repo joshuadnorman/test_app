@@ -9,18 +9,21 @@
 				<div class="left"></div>
 				<div class="right"></div>
 			</div>
-			<li class="nav-item active">
-				<%= link_to root_path,class: "nav-link" do %>
+			<li class="nav-item <%='active' if current_page?(root_path)%>">
+				<%= link_to root_path,class: "nav-link ", data: { "turbo-method": :get } do %>
   					<i class="fas fa-house-user"></i>Home
 				<% end %>
 			</li>
-			<li class="nav-item">
-				<%= link_to about_path,class: "nav-link" do %>
+			<li class="nav-item <%='active' if current_page?(about_path)%>">
+				<%= link_to about_path,class: "nav-link", data: { "turbo-method": :get } do %>
   					<i class="fa-solid fa-circle-info"></i>About
 				<% end %>
 			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="javascript:void(0);"><i class="fa-solid fa-newspaper"></i>Articles</a>
+			<li class="nav-item <%='active' if current_page?(articles_path)%>">
+				
+				<%= link_to articles_path,class: "nav-link", data: { "turbo-method": :get } do %>
+				<i class="fa-solid fa-newspaper"></i>Articles
+				<% end %>
 			</li>
 		</ul>
 	</div>

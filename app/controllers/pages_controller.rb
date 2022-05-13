@@ -5,6 +5,6 @@ class PagesController < ApplicationController
     end
     
     def about
-        
+        @active_nav = 'activities'
     end
 end
