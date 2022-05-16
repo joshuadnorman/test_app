@@ -1,19 +1,20 @@
 <!DOCTYPE html>
-
 <html>
-  <head>
-    <title>AlphaBlog</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-    <script src="https://kit.fontawesome.com/e14110c844.js" crossorigin="anonymous"></script>
-  </head>
-  <%=render 'layouts/navigation'=%>
-  <body class="d-flex flex-column">
-    <%=render 'layouts/messages'=%>
-    <%= yield %>
-  </body>
+   <head>
+      <title>AlphaBlog</title>
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <%= csrf_meta_tags %>
+      <%= csp_meta_tag %>
+      <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+      <%= javascript_importmap_tags %>
+      <script src="https://kit.fontawesome.com/e14110c844.js" crossorigin="anonymous"></script>
+   </head>
+   <%=render 'layouts/navigation'=%>
+   <body class="d-flex flex-column">
+      <div id="page-content">
+         <%=render 'layouts/messages'=%>
+         <%= yield %>
+      </div>
+      <%=render 'layouts/footer'=%>
+   </body>
 </html>

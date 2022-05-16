@@ -32,17 +32,17 @@ $(document).ready(function () {
 		test();
 	});
 });
-// $(window).on("resize", function () {
-// 	setTimeout(function () {
-// 		test();
-// 	}, 500);
-// });
-// $(".navbar-toggler").click(function () {
-// 	$(".navbar-collapse").slideToggle(600);
-// 	setTimeout(function () {
-// 		test();
-// 	});
-// });
+$(window).on("resize", function () {
+	setTimeout(function () {
+		test();
+	}, 500);
+});
+$(".navbar-toggler").click(function () {
+	$(".navbar-collapse").slideToggle(600);
+	setTimeout(function () {
+		test();
+	});
+});
 
 // --------------add active class-on another-page move----------
 // jQuery(document).ready(function ($) {

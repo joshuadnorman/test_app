@@ -1,24 +1,34 @@
-<% if @article.errors.any? %>
-    <h2>See errors below</h2>
-    <ul>
-        <%@article.errors.full_messages.each do |msg|%>
-           <li><%= msg%></li>
-        <%end%>
-    </ul>
-<%end%>
-
-<%= form_with(model: @article, local: true, data: { turbo: false }) do |f| %>
-    <p>
-        <%= f.label :title %>
-        </br>
-        <%= f.text_field :title %>
-    </p>
-    <p>
-        <%= f.label :description %>
-        </br>
-        <%= f.text_area :description %>
-    </p>
-    <p>
-        <%=f.submit%>
-    </p>
-<%end%>
+<div class="container">
+   <div class="row justify-content-center">
+      <div class="col-10">
+         <%= render 'shared/errors' %>
+         <%= form_with(model: @article,class:"shadow p-3 mb-3 bg-info rounded", local: true, data: { turbo: false }) do |f| %>
+         <p>
+         <div class="form-group row text-light">
+            <%= f.label :title,class:"col-2 col-form-label" %>
+            <div class="col-10">
+               <%= f.text_field :title,class:"form-control shadow rounded",placeholder:"Title of Article" %>
+            </div>
+         </div>
+         </p>
+         <p>
+         <div class="form-group row text-light">
+            <%= f.label :description,class:"col-2 col-form-label" %>
+            </br>
+            <div class="col-10">
+               <%= f.text_area :description,rows:10 ,class:"form-control shadow rounded",placeholder:"Description of Article" %>
+            </div>
+         </div>
+         </p>
+         <p>
+         <div class="form-group row justify-content-center">
+            <%=f.submit class:"btn btn-outline-light bnt-lg col-4"  %>
+         </div>
+         </p>
+         <%end%>
+      </div>
+   </div>
+   <div id="return" class=" text-center mb-3">
+      <%= link_to ' [ Return to articles index ] ',articles_path(),class:"text-info", data: { "turbo-method": :get } %>
+   </div>
+</div>
