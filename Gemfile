@@ -79,3 +79,4 @@ group :production do
   
 end 
 gem "byebug", "~> 11.1"
+gem "will_paginate"

@@ -3,4 +3,13 @@
     <%= link_to 'New Article',new_article_path(),class:"btn btn-success mb-0", data: { "turbo-method": :get } %>
 </div>
 <br>
+<div class="flickr_pagination">
+    <!--<div class="page_info">-->
+    <!--  <%= page_entries_info @articles %>--> <!-- This is to show the total entries -->
+    <!--</div>-->
+    <%= will_paginate @articles, :container => false %>
+  </div>
 <%= render 'article' %>
+<div class="flickr_pagination mb-4">
+    <%= will_paginate @articles, :container => false %>
+  </div>
