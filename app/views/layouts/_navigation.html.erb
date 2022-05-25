@@ -25,6 +25,18 @@
 				<i class="fa-solid fa-newspaper"></i>Articles
 				<% end %>
 			</li>
+			<li class="nav-item ">
+				
+				<%= link_to  login_path,class: "nav-link", data: { "turbo-method": :get } do %>
+				<i class="fa-solid fa-arrow-right-to-bracket"></i>Login
+				<% end %>
+			</li>
+			<li class="nav-item ">
+				
+				<%= button_to logout_path,class: "nav-link", method: :delete do %>
+				<i class="fa-solid fa-arrow-left-to-bracket"></i>Log Out
+				<% end %>
+			</li>
 		</ul>
 	</div>
 </nav>
