@@ -10,4 +10,10 @@ module ApplicationHelper
         #   "<img src=\"#{image_src}\" alt=\"#{user.username}'s avatar'\" width=\"500\" height=\"600\">"
         image_tag(image_src,alt:"#{user.username}'s Avatar",class:"rounded mx-auto d-block")
     end 
+    
+   
+    
+    def logged_in?
+        !!current_user
+    end 
 end

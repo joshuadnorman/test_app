@@ -10,8 +10,10 @@
             <div class="card-body">
                <%= link_to gravatar_for(user,size:200),user %> 
                <p class="card-text"><%= pluralize(user.articles.count,"article") %></p>
-               <%= link_to 'Show Profile',user_path(user),class:"btn btn-outline-success", data: { "turbo-method": :get } %>
-               <%= link_to 'Edit Profile',edit_user_path(user),class:"btn btn-outline-warning", data: { "turbo-method": :patch } %>
+               <% if logged_in? && user == current_user %>
+                  <%= link_to 'Show Profile',user_path(user),class:"btn btn-outline-success", data: { "turbo-method": :get } %>
+                  <%= link_to 'Edit Profile',edit_user_path(user),class:"btn btn-outline-warning", data: { "turbo-method": :patch } %>
+               <%end%>
             </div>
             <div class="card-footer text-muted">
                <small>

@@ -1,42 +1,30 @@
-<nav class="navbar navbar-expand-custom navbar-mainbg">
-	<%= link_to 'ALPHA BLOG',root_path(),class: "navbar-brand navbar-logo",id:"logo", data: { "turbo-method": :get } %>
-	<button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		<i class="fas fa-bars text-white"></i>
-	</button>
-	<div class="collapse navbar-collapse" id="navbarSupportedContent">
-		<ul class="navbar-nav ml-auto">
-			<div class="hori-selector">
-				<div class="left"></div>
-				<div class="right"></div>
-			</div>
-			<li class="nav-item <%='active' if current_page?(root_path)%>">
-				<%= link_to root_path,class: "nav-link ", data: { "turbo-method": :get } do %>
-  					<i class="fas fa-house-user"></i>Home
-				<% end %>
-			</li>
-			<li class="nav-item <%='active' if current_page?(about_path)%>">
-				<%= link_to about_path,class: "nav-link", data: { "turbo-method": :get } do %>
-  					<i class="fa-solid fa-circle-info"></i>About
-				<% end %>
-			</li>
-			<li class="nav-item <%='active' if current_page?(articles_path)%>">
-				
-				<%= link_to articles_path,class: "nav-link", data: { "turbo-method": :get } do %>
-				<i class="fa-solid fa-newspaper"></i>Articles
-				<% end %>
-			</li>
-			<li class="nav-item ">
-				
-				<%= link_to  login_path,class: "nav-link", data: { "turbo-method": :get } do %>
-				<i class="fa-solid fa-arrow-right-to-bracket"></i>Login
-				<% end %>
-			</li>
-			<li class="nav-item ">
-				
-				<%= button_to logout_path,class: "nav-link", method: :delete do %>
-				<i class="fa-solid fa-arrow-left-to-bracket"></i>Log Out
-				<% end %>
-			</li>
-		</ul>
-	</div>
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #0dcaf0;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Alpha Blog</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item"><%= link_to root_path,class: "nav-link ", data: { "turbo-method": :get } do %> <i class="fas fa-house-user"></i>Home <% end %> </li>
+        <li class="nav-item"><%= link_to about_path,class: "nav-link", data: { "turbo-method": :get } do %> <i class="fa-solid fa-circle-info"></i>About <% end %> </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Articles</a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li class="nav-item"><%= link_to articles_path,class: "nav-link", data: { "turbo-method": :get } do %> <i class="fa-solid fa-newspaper"></i>Articles <% end %>
+            <% if logged_in? %>
+            <li class="nav-item"><%= link_to new_article_path(),class: "nav-link", data: { "turbo-method": :get } do %> <i class="fa-solid fa-pen-to-square"></i>New Article<% end %>
+            <%end%>
+          </ul>
+        </li>
+        <% if !logged_in? %>
+	        <li class="nav-item"><%= link_to  login_path,class: "nav-link", data: { "turbo-method": :get } do %> <i class="fa-solid fa-arrow-right-to-bracket"></i>Login <% end %> </li>
+	        <li><%= link_to signup_path,class: "nav-link", data: { "turbo-method": :get } do %> <i class="fa-solid fa-arrow-right-to-bracket"></i>Sign Up <% end %> </li>
+        <% else %> 
+	        <li class="nav-item "><%= button_to logout_path,class: "nav-link logout", method: :delete do %> <i class="fa-solid fa-arrow-right-from-bracket"></i>Log Out<% end %> </li>
+	        <li class="nav-item "><%= link_to current_user,class: "nav-link", method: :get do %> <i class="fa fa-user" aria-hidden="true"></i><%= current_user.username %><% end %> </li>
+        <% end %> 
+      </ul>
+    </div>
+  </div>
 </nav>
