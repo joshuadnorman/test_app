@@ -50,12 +50,12 @@ gem 'jquery-rails', '~> 4.4'
 # gem "image_processing", "~> 1.2"
 
 group :development, :test do
-  gem "sqlite3", "~> 1.4"
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
 end
 
 group :development do
+  gem "sqlite3", "~> 1.4"
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
 
