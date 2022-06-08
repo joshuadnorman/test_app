@@ -20,7 +20,6 @@ def create
 end 
 
 def destroy
-    debugger
     session[:user_id] = nil
     flash[:notice] = "Successfully logged out"
     redirect_to login_path
