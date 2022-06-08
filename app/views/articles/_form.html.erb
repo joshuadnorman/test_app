@@ -21,6 +21,15 @@
          </div>
          </p>
          <p>
+         <div class="form-group row text-light">
+            <%= f.label :category,class:"col-2 col-form-label" %>
+            </br>
+            <div class="col-10">
+               <%= f.collection_select :category_ids, Category.all, :id, :name , {:prompt => "Select Categories "}, {:multiple => true,size: 3,class:"form-select  shadow rounded"}%>
+            </div>
+         </div>
+         </p>
+         <p>
          <div class="form-group row justify-content-center">
             <%=f.submit class:"btn btn-outline-light bnt-lg col-4"  %>
          </div>

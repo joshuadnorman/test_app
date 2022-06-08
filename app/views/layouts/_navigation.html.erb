@@ -11,9 +11,18 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Articles</a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li class="nav-item"><%= link_to articles_path,class: "nav-link", data: { "turbo-method": :get } do %> <i class="fa-solid fa-newspaper"></i>Articles <% end %>
+            <li class="nav-item"><%= link_to articles_path,class: "nav-link text-primary", data: { "turbo-method": :get } do %> <i class="fa-solid fa-newspaper"></i>Articles <% end %>
             <% if logged_in? %>
-            <li class="nav-item"><%= link_to new_article_path(),class: "nav-link", data: { "turbo-method": :get } do %> <i class="fa-solid fa-pen-to-square"></i>New Article<% end %>
+            <li class="nav-item"><%= link_to new_article_path(),class: "nav-link text-primary", data: { "turbo-method": :get } do %> <i class="fa-solid fa-pen-to-square"></i>New Article<% end %>
+            <%end%>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categories</a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li class="nav-item"><%= link_to categories_path,class: "nav-link text-primary", data: { "turbo-method": :get } do %> <i class="fa-solid fa-newspaper"></i>Categories<% end %>
+            <% if logged_in? && current_user.admin? %>
+            <li class="nav-item"><%= link_to new_category_path(),class: "nav-link text-primary", data: { "turbo-method": :get } do %> <i class="fa-solid fa-pen-to-square"></i>New Category<% end %>
             <%end%>
           </ul>
         </li>
@@ -24,10 +33,10 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><%= "(Admin)" if current_user.admin?  %>Profile [<%= current_user.username %>]</a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li class="nav-item"><%= link_to user_path(current_user),class: "nav-link", data: { "turbo-method": :get } do %> <i class="fa-solid fa-newspaper"></i>View Profile<% end %>
+            <li class="nav-item"><%= link_to user_path(current_user),class: "nav-link text-primary", data: { "turbo-method": :get } do %> <i class="fa-solid fa-newspaper"></i>View Profile<% end %>
             <% if logged_in? %>
-            <li class="nav-item"><%= link_to edit_user_path(current_user),class: "nav-link", data: { "turbo-method": :get ,"confirm":"Are you sure ?"} do %> <i class="fa-solid fa-pen-to-square"></i>Edit Profile<% end %>
-            <li class="nav-item "><%= button_to logout_path,class: "nav-link logout", method: :delete do %> <i class="fa-solid fa-arrow-right-from-bracket"></i>Log Out<% end %> </li>
+            <li class="nav-item"><%= link_to edit_user_path(current_user),class: "nav-link text-primary", data: { "turbo-method": :get ,"confirm":"Are you sure ?"} do %> <i class="fa-solid fa-pen-to-square"></i>Edit Profile<% end %>
+            <li class="nav-item "><%= button_to logout_path,class: "nav-link logout text-primary", method: :delete do %> <i class="fa-solid fa-arrow-right-from-bracket"></i>Log Out<% end %> </li>
             <li class="nav-item "><%= button_to user_path(current_user),class: "nav-link logout text-danger", method: :delete do %> <i class="fa-solid fa-circle-trash"></i>Delete Account<% end %> </li>
             <%end%>
           </ul>

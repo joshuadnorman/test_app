@@ -41,7 +41,6 @@ class UsersController < ApplicationController
     
     def destroy
         @user.destroy
-        debugger
         session[:user_id] = nil if @user == current_user #this has to happen to clear the cookie session which will cause confusion to the user 
         flash[:notice] = "Account and articles have been deleted"
         redirect_to root_path
