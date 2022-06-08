@@ -19,6 +19,6 @@
       </div>
    </div>
    <div id="return" class=" text-center mb-3">
-      <%= link_to ' [ Return to articles index ] ',articles_path(),class:"text-info", data: { "turbo-method": :get } %>
+      <%= link_to "[ Cancel and return to #{@category.name} category page ] ",category_path(@category),class:"text-info", data: { "turbo-method": :get } %>
    </div>
 </div>
